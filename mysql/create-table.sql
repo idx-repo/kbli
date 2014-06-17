@@ -1,4 +1,4 @@
-DROP DATABASE IF EXIXTS `kbli`;
+DROP DATABASE IF EXISTS `kbli`;
 CREATE DATABASE `kbli`;
 USE `kbli`;
 CREATE TABLE `kategori` (
