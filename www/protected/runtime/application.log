@@ -1,0 +1,68 @@
+2014/06/18 03:53:02 [error] [php] Undefined variable: model (C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kategori\index.php:38)
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(869): KategoriController->renderFile()
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(782): KategoriController->renderPartial()
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KategoriController.php(128): KategoriController->render()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CInlineAction.php(49): KategoriController->actionIndex()
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): KategoriController->runAction()
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): KategoriController->filterAccessControl()
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): KategoriController->runActionWithFilters()
+#12 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): KategoriController->run()
+#13 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/kbli/index.php/kategori/index
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kategori\index.php (38)
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KategoriController.php (128)
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php (13)
+2014/06/18 03:55:51 [error] [exception.CException] exception 'CException' with message 'KategoriController cannot find the requested view "admin".' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php:878
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KategoriController.php(132): CController->render('admin', Array)
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CInlineAction.php(49): KategoriController->actionIndex()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('index')
+#12 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('kategori/index')
+#13 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/kbli/index.php/kategori/index?Kategori%5Bid%5D=&Kategori%5Bkd%5D=B&Kategori%5Bjudul%5D=&Kategori%5Bdeskripsi%5D=&Kategori_page=1&ajax=kategori-grid
+HTTP_REFERER=http://localhost/kbli/index.php/kategori/index
+---
+2014/06/18 04:00:07 [error] [exception.CException] exception 'CException' with message 'KategoriController has an extra endWidget(CContentDecorator) call in its view.' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php:210
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php(126): require('C:\\Documents an...')
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\Documents an...', Array, true)
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(784): CBaseController->renderFile('C:\\Documents an...', Array, true)
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KategoriController.php(79): CController->render('create', Array)
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CInlineAction.php(49): KategoriController->actionCreate()
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('kategori/create')
+#17 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/kbli/index.php/kategori/create
+HTTP_REFERER=http://localhost/kbli/index.php/kategori/index
+---

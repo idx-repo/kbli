@@ -122,23 +122,12 @@ class KategoriController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Kategori');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
 		$model=new Kategori('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Kategori']))
 			$model->attributes=$_GET['Kategori'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}
