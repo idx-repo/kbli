@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Tambah Golongan', 'url'=>array('gol/create')),
+	array('label'=>'Tambah Golongan', 'url'=>array('gol/create','id'=>$golpok->id)),
 );
 ?>
 
@@ -41,6 +41,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{view} {update}'
+			'buttons'=>array(
+				'view'=>array(
+					'url'=>'Yii::app()->createUrl("gol/view",array("id"=>$data->id))',
+					),
+				'update'=>array(
+					'url'=>'Yii::app()->createUrl("gol/update",array("id"=>$data->id))',
+					),
+				),
 		),
 	),
 )); ?>
