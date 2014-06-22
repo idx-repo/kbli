@@ -7,9 +7,6 @@ $this->breadcrumbs=array(
 	'Kategori',
 );
 
-$this->menu=array(
-	array('label'=>'List Kategori', 'url'=>array('index')),
-);
 ?>
 
 <h1>Tambah Kategori</h1>

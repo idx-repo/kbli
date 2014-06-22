@@ -15,7 +15,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 ));
-$kategori = CHtml::listData(Kategori::model()->findAll(),'id','judul');
+if(!isset($kategori)) $kategori=$model->kategori;
 ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -23,8 +23,7 @@ $kategori = CHtml::listData(Kategori::model()->findAll(),'id','judul');
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'kategori'); ?>
-		<?php echo $form->dropDownList($model,'kategori',$kategori,array('prompt'=>'-- Pilih Kategori --')); ?>
+		<?php echo $form->hiddenField($model,'kategori',array('value'=>$kategori)); ?>
 		<?php echo $form->error($model,'kategori'); ?>
 	</div>
 

@@ -3,16 +3,11 @@
 /* @var $model GolPok */
 
 $this->breadcrumbs=array(
-	'Gol Poks'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List GolPok', 'url'=>array('index')),
-	array('label'=>'Manage GolPok', 'url'=>array('admin')),
+	'Perekaman Golongan Pokok',
+	Kategori::model()->findByPk($kategori)->kd.' '.Kategori::model()->findByPk($kategori)->judul=>array('kategori/view','id'=>$kategori),
 );
 ?>
 
-<h1>Create GolPok</h1>
+<h1>Perekaman Golongan Pokok</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'kategori'=>$kategori)); ?>
