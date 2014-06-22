@@ -65,14 +65,6 @@ class GolPokController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('GolPok');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
 	public function loadModel($id)
 	{
 		$model=GolPok::model()->findByPk($id);
