@@ -1,30 +1,51 @@
 <?php
-/* @var $this SubGolController */
-/* @var $model SubGol */
-
 $this->breadcrumbs=array(
-	'Sub Gols'=>array('index'),
-	$model->id,
+	'Golongan Pokok: '.Gol::model()->findByPk($subgol->gol)->gol=>array('gol/view','id'=>$subgol->gol),
+	'Golongan: '.$subgol->sub_gol.' '.$subgol->judul,
 );
 
 $this->menu=array(
-	array('label'=>'List SubGol', 'url'=>array('index')),
-	array('label'=>'Create SubGol', 'url'=>array('create')),
-	array('label'=>'Update SubGol', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete SubGol', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage SubGol', 'url'=>array('admin')),
+	array('label'=>'Tambah Kelompok', 'url'=>array('kelompok/create','id'=>$subgol->id)),
 );
 ?>
 
-<h1>View SubGol #<?php echo $model->id; ?></h1>
+<h1>Sub Golongan</h1>
+<h3><?php echo $subgol->sub_gol.' '.$subgol->judul; ?></h3>
+<p><?php echo $subgol->deskripsi; ?></p>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
+<p>
+You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
+
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<div class="search-form" style="display:none">
+<?php $this->renderPartial('_search_kelompok',array(
+	'model'=>$kelompok,
+)); ?>
+</div><!-- search-form -->
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'gol-grid',
+	'dataProvider'=>$kelompok->search(),
+	'filter'=>$kelompok,
+	'columns'=>array(
 		'id',
-		'gol',
 		'sub_gol',
+		'kelompok',
 		'judul',
 		'deskripsi',
+		array(
+			'class'=>'CButtonColumn',
+			'template'=>'{view} {update}',
+			'buttons'=>array(
+				'view'=>array(
+					'url'=>'Yii::app()->createUrl("kelompok/view",array("id"=>$data->id))',
+					),
+				'update'=>array(
+					'url'=>'Yii::app()->createUrl("kelompok/update",array("id"=>$data->id))',
+					),
+				),
+		),
 	),
 )); ?>

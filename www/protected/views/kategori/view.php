@@ -1,7 +1,4 @@
 <?php
-/* @var $this KategoriController */
-/* @var $model Kategori */
-
 $this->breadcrumbs=array(
 	'Kategori'=>array('index'),
 	$kategori->kd.' '.$kategori->judul,

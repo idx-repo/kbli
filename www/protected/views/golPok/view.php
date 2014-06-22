@@ -1,7 +1,4 @@
 <?php
-/* @var $this GolPokController */
-/* @var $model GolPok */
-
 $this->breadcrumbs=array(
 	'Kategori: '.Kategori::model()->findByPk($golpok->kategori)->kd=>array('kategori/view','id'=>$golpok->kategori),
 	'Golongan Pokok: '.$golpok->gol_pok.' '.$golpok->judul,
@@ -40,7 +37,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'deskripsi',
 		array(
 			'class'=>'CButtonColumn',
-			'template'=>'{view} {update}'
+			'template'=>'{view} {update}',
 			'buttons'=>array(
 				'view'=>array(
 					'url'=>'Yii::app()->createUrl("gol/view",array("id"=>$data->id))',
