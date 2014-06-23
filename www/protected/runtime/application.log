@@ -821,3 +821,31 @@ Stack trace:
 REQUEST_URI=/kbli/index.php/kelompok/10
 HTTP_REFERER=http://192.168.10.200/kbli/index.php/kelompok/create/2
 ---
+2014/06/23 09:54:55 [error] [php] Undefined variable: subgol (C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kelompok\_form.php:13)
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(869): KelompokController->renderFile()
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kelompok\update.php(21): KelompokController->renderPartial()
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php(126): require()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CBaseController.php(95): KelompokController->renderInternal()
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(869): KelompokController->renderFile()
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(782): KelompokController->renderPartial()
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KelompokController.php(60): KelompokController->render()
+#7 unknown(0): KelompokController->actionUpdate()
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): KelompokController->runAction()
+#12 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#14 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): KelompokController->filterAccessControl()
+#15 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#16 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): KelompokController->runActionWithFilters()
+#18 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): KelompokController->run()
+#19 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/kbli/index.php/kelompok/update/31
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kelompok\_form.php (13)
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\views\kelompok\update.php (21)
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\KelompokController.php (60)

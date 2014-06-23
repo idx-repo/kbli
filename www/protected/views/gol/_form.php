@@ -20,8 +20,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'gol_pok'); ?>
-		<?php echo $form->textField($model,'gol_pok'); ?>
+		<?php echo $form->hiddenField($model,'gol_pok',array('value'=>$golpok)); ?>
 		<?php echo $form->error($model,'gol_pok'); ?>
 	</div>
 

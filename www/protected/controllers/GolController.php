@@ -29,11 +29,15 @@ class GolController extends Controller
 		$gol=$this->loadModel($id);
 		$subgol=new SubGol('search');
 		$subgol->unsetAttributes();
-		if(isset($_GET['SubGol'])) $gol->attributes=$_GET['SubGol'];
+		if(isset($_GET['SubGol'])) {
+			$subgol->attributes=$_GET['SubGol'];
+		} else {
+			$subgol->gol = $id;
+		};
 		$this->render('view',array('gol'=>$gol,'subgol'=>$subgol));
 	}
 
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new Gol;
 		if(isset($_POST['Gol']))
@@ -42,7 +46,7 @@ class GolController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-		$this->render('create',array('model'=>$model));
+		$this->render('create',array('model'=>$model,'golpok'=>$id));
 	}
 
 	public function actionUpdate($id)
