@@ -28,11 +28,15 @@ class SubGolController extends Controller
 		$subgol=$this->loadModel($id);
 		$kelompok=new Kelompok('search');
 		$kelompok->unsetAttributes();
-		if(isset($_GET['Kelompok'])) $kelompok->attributes=$_GET['Kelompok'];
+		if(isset($_GET['Kelompok'])) {
+			$kelompok->attributes=$_GET['Kelompok'];
+		} else {
+			$kelompok->sub_gol=$id;
+		};
 		$this->render('view',array('subgol'=>$subgol,'kelompok'=>$kelompok));
 	}
 
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new SubGol;
 		if(isset($_POST['SubGol']))
@@ -41,10 +45,7 @@ class SubGolController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('create',array('model'=>$model,'gol'=>$id));
 	}
 	public function actionUpdate($id)
 	{

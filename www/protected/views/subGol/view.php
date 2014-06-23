@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	'Golongan Pokok: '.Gol::model()->findByPk($subgol->gol)->gol=>array('gol/view','id'=>$subgol->gol),
-	'Golongan: '.$subgol->sub_gol.' '.$subgol->judul,
+	'Golongan: '.Gol::model()->findByPk($subgol->gol)->gol=>array('gol/view','id'=>$subgol->gol),
+	'Sub Golongan: '.$subgol->sub_gol.' '.$subgol->judul,
 );
 
 $this->menu=array(
@@ -30,8 +30,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$kelompok->search(),
 	'filter'=>$kelompok,
 	'columns'=>array(
-		'id',
-		'sub_gol',
+		//'id',
+		//'sub_gol',
 		'kelompok',
 		'judul',
 		'deskripsi',

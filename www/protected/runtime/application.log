@@ -745,3 +745,79 @@ Stack trace:
 REQUEST_URI=/kbli/index.php/subGol/1
 HTTP_REFERER=http://localhost/kbli/index.php/gol/1
 ---
+2014/06/23 04:25:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php:336
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('subGol/create')
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/kbli/index.php/subGol/create/1
+HTTP_REFERER=http://192.168.10.200/kbli/index.php/gol/1
+---
+2014/06/23 04:26:22 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php:336
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('subGol/create')
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/kbli/index.php/subGol/create/1
+HTTP_REFERER=http://192.168.10.200/kbli/index.php/gol/1
+---
+2014/06/23 04:31:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php:483
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(270): CController->missingAction('index')
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('index')
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('subGol/index')
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/kbli/index.php/subGol/index
+HTTP_REFERER=http://localhost/kbli/index.php/subGol/create/1
+---
+2014/06/23 04:36:24 [error] [php] Indirect modification of overloaded property Kelompok::$attributes has no effect (C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\SubGolController.php:34)
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(133): SubGolController->runAction()
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CInlineFilter.php(58): SubGolController->filterAccessControl()
+#6 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(265): SubGolController->runActionWithFilters()
+#9 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): SubGolController->run()
+#10 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/kbli/index.php/subGol/2
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\protected\controllers\SubGolController.php (34)
+in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php (13)
+2014/06/23 05:25:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php:483
+Stack trace:
+#0 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CController.php(270): CController->missingAction('view')
+#1 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(282): CController->run('view')
+#2 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\web\CWebApplication.php(141): CWebApplication->runController('kelompok/view')
+#3 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\yii-1.1.14.f0fee9\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Documents and Settings\Administrator\My Documents\idx-repo\kbli\www\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/kbli/index.php/kelompok/10
+HTTP_REFERER=http://192.168.10.200/kbli/index.php/kelompok/create/2
+---

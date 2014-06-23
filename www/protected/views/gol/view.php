@@ -30,8 +30,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$subgol->search(),
 	'filter'=>$subgol,
 	'columns'=>array(
-		'id',
-		'gol',
+		//'id',
+		//'gol',
 		'sub_gol',
 		'judul',
 		'deskripsi',

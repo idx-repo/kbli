@@ -1,18 +1,10 @@
 <?php
-/* @var $this KelompokController */
-/* @var $model Kelompok */
-
 $this->breadcrumbs=array(
-	'Kelompoks'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List Kelompok', 'url'=>array('index')),
-	array('label'=>'Manage Kelompok', 'url'=>array('admin')),
+	'Sub Golongan: '.SubGol::model()->findByPk($subgol)->sub_gol=>array('subGol/view','id'=>$subgol),
+	'Tambah Kelompok',
 );
 ?>
 
-<h1>Create Kelompok</h1>
+<h1>Tambah Kelompok</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'subgol'=>$subgol)); ?>
