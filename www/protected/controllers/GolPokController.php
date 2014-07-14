@@ -42,7 +42,7 @@ class GolPokController extends Controller
 		if(isset($_POST['GolPok']))
 		{
 			$model->attributes=$_POST['GolPok'];
-			if($model->save()) $this->redirect(array('kategori/view','id'=>$id));
+			if($model->save()) $this->redirect(array('view','id'=>$id));
 		}
 		$this->render('create',array('model'=>$model,'kategori'=>$id,));
 	}
