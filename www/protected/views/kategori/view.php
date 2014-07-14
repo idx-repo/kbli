@@ -42,8 +42,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$golpok->search(),
 	'filter'=>$golpok,
 	'columns'=>array(
-		'id',
-		'kategori',
+		//'id',
+		//'kategori',
 		'gol_pok',
 		'judul',
 		'deskripsi',
