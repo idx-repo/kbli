@@ -29,7 +29,11 @@ class GolPokController extends Controller
 		$golpok=$this->loadModel($id);
 		$gol=new Gol('search');
 		$gol->unsetAttributes();  // clear any default values
-		if(isset($_GET['Gol'])) $gol->attributes=$_GET['Gol'];
+		if(isset($_GET['Gol'])) {
+			$gol->attributes=$_GET['SubGol'];
+		} else {
+			$gol->gol_pok = $id;
+		};
 		$this->render('view',array(
 			'golpok'=>$golpok,
 			'gol'=>$gol,
