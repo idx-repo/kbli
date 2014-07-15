@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Golongan: '.SubGol::model()->findByPk($gol)->gol=>array('gol/view','id'=>$gol),
+	'Golongan: '.Gol::model()->findByPk($gol)->gol=>array('gol/view','id'=>$gol),
 	'Tambah Sub Golongan'
 );
 ?>
