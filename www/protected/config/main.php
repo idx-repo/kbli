@@ -30,8 +30,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=kbli',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'kbli',
+			'password' => 'kbli',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
