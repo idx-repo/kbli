@@ -29,7 +29,11 @@ class KategoriController extends Controller
 		$kategori=$this->loadModel($id);
 		$golpok=new GolPok('search');
 		$golpok->unsetAttributes();  // clear any default values
-		if(isset($_GET['GolPok'])) $model->attributes=$_GET['GolPok'];
+		if(isset($_GET['GolPok'])) {
+			$golpok->attributes=$_GET['Gol'];
+		} else {
+			$golpok->kategori = $id;
+		};
 		$this->render('view',array(
 			'kategori'=>$kategori,
 			'golpok'=>$golpok,
