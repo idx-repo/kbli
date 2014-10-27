@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Perekaman Golongan',
-	Golpok::model()->findByPk($golpok)->gol_pok.' '.Golpok::model()->findByPk($golpok)->judul=>array('golpok/view','id'=>$golpok),
+	GolPok::model()->findByPk($golpok)->gol_pok.' '.Golpok::model()->findByPk($golpok)->judul=>array('golpok/view','id'=>$golpok),
 );
 ?>
 
