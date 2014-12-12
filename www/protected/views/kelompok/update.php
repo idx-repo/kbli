@@ -3,7 +3,7 @@
 /* @var $model Kelompok */
 
 $this->breadcrumbs=array(
-	'SubGolongan: '.SubGol::model()->findByPk($model->sub_gol)->judul => array('/subGol/view','id'=>$model->sub_gol),
+	'SubGolongan: '.SubGol::model()->findByPk($model->sub_gol)->sub_gol => array('/subGol/view','id'=>$model->sub_gol),
 	'Kelompok: '.$model->judul,
 );
 
