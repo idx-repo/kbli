@@ -9,10 +9,12 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+	<?php if ($model->isNewRecord) { ?>
 	<div class="row">
 		<?php echo $form->hiddenField($model,'gol',array('value'=>$gol)); ?>
 		<?php echo $form->error($model,'gol'); ?>
 	</div>
+	<?php }; ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sub_gol'); ?>
