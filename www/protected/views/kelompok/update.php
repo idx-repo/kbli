@@ -8,12 +8,6 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Kelompok', 'url'=>array('index')),
-	array('label'=>'Create Kelompok', 'url'=>array('create')),
-	array('label'=>'View Kelompok', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Kelompok', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Update Kelompok <?php echo $model->id; ?></h1>
