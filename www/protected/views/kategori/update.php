@@ -4,11 +4,10 @@
 
 $this->breadcrumbs=array(
 	'Kategori'=>array('index'),
-	$model->kd,
-	'Update'
+	'Update :'.$model->judul,
 );
 ?>
 
-<h1>Update Kategori <?php echo $model->kd; ?></h1>
+<h1>Update Kategori <?php echo $model->judul; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
