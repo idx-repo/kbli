@@ -19,10 +19,12 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+	<?php if ($model->isNewRecord) { ?>
 	<div class="row">
 		<?php echo $form->hiddenField($model,'gol_pok',array('value'=>$golpok)); ?>
 		<?php echo $form->error($model,'gol_pok'); ?>
 	</div>
+	<?php }; ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gol'); ?>
