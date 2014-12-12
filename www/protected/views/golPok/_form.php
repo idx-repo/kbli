@@ -22,10 +22,12 @@ if(!isset($kategori)) $kategori=$model->kategori;
 
 	<?php echo $form->errorSummary($model); ?>
 
+	<?php if ($model->isNewRecord) { ?>
 	<div class="row">
 		<?php echo $form->hiddenField($model,'kategori',array('value'=>$kategori)); ?>
 		<?php echo $form->error($model,'kategori'); ?>
 	</div>
+	<?php }; ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gol_pok'); ?>
