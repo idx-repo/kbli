@@ -3,7 +3,7 @@
 /* @var $model Gol */
 
 $this->breadcrumbs=array(
-	'SubGolongan: '.GolPok::model()->findByPk($model->gol_pok)->gol_pok=>array('golPok/view','id'=>$model->gol_pok),
+	'Golongan Pokok: '.GolPok::model()->findByPk($model->gol_pok)->gol_pok=>array('golPok/view','id'=>$model->gol_pok),
 	'Update: '.$model->judul,
 );
 ?>
