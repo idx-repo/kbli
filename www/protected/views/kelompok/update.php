@@ -3,13 +3,12 @@
 /* @var $model Kelompok */
 
 $this->breadcrumbs=array(
-	'Kelompoks'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'SubGolongan: '.SubGol::model()->findByPk($model->sub_gol)->judul => array('/subGol/view','id'=>$model->sub_gol),
+	'Kelompok: '.$model->judul,
 );
 
 ?>
 
-<h1>Update Kelompok <?php echo $model->id; ?></h1>
+<h1>Update Kelompok <?php echo $model->judul; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -15,7 +15,7 @@ class KelompokController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','view'),
 				'users'=>array('@'),
 			),
 			array('deny',
@@ -75,13 +75,13 @@ class KelompokController extends Controller
 	}
 
 	/**
-	 * Lists all models.
+	 * View model.
 	 */
-	public function actionIndex()
+	public function actionView($id)
 	{
-		$dataProvider=new CActiveDataProvider('Kelompok');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$kelompok = $this->loadModel($id);
+		$this->render('view',array(
+			'model'=>$kelompok,
 		));
 	}
 

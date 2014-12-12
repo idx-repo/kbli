@@ -3,28 +3,21 @@
 /* @var $model Kelompok */
 
 $this->breadcrumbs=array(
-	'Kelompoks'=>array('index'),
-	$model->id,
+	'SubGolongan: '.SubGol::model()->findByPk($model->sub_gol)->judul => array('/subGol/view','id'=>$model->sub_gol),
+	'Kelompok: '.$model->judul,
 );
-
 $this->menu=array(
-	array('label'=>'List Kelompok', 'url'=>array('index')),
-	array('label'=>'Create Kelompok', 'url'=>array('create')),
-	array('label'=>'Update Kelompok', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Kelompok', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Kelompok', 'url'=>array('admin')),
+	array('label'=>'Update', 'url'=>array('kelompok/update','id'=>$model->id)),
 );
 ?>
 
-<h1>View Kelompok #<?php echo $model->id; ?></h1>
+<h1>View Kelompok: <?php echo $model->judul; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
+	'data'=>array(),
 	'attributes'=>array(
-		'id',
-		'sub_gol',
-		'kelompok',
-		'judul',
-		'deskripsi',
+		array('name'=>'kelompok','value'=>$model->kelompok),
+		array('name'=>'judul','value'=>$model->judul),
+		array('name'=>'deskripsi','value'=>nl2br($model->deskripsi)),
 	),
 )); ?>
