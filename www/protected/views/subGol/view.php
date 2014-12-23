@@ -11,7 +11,7 @@ $this->menu=array(
 
 <h1>Sub Golongan</h1>
 <h3><?php echo $subgol->sub_gol.' '.$subgol->judul; ?></h3>
-<p><?php echo $subgol->deskripsi; ?></p>
+<p><?php echo nl2br($subgol->deskripsi); ?></p>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
