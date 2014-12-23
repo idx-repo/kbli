@@ -6,6 +6,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Tambah Kelompok', 'url'=>array('kelompok/create','id'=>$subgol->id)),
+	array('label'=>'Update Sub Golongan', 'url'=>array('subGol/update','id'=>$subgol->id)),
 );
 ?>
 
