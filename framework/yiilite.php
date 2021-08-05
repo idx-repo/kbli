@@ -41,7 +41,7 @@ class YiiBase
 	private static $_logger;
 	public static function getVersion()
 	{
-		return '1.1.23-dev';
+		return '1.1.25-dev';
 	}
 	public static function createWebApplication($config=null)
 	{
@@ -900,7 +900,7 @@ class CComponent
 		else
 		{
 			$_data_[]=$this;
-			return call_user_func_array($_expression_, $_data_);
+			return call_user_func_array($_expression_, array_values($_data_));
 		}
 	}
 }
@@ -1542,9 +1542,7 @@ abstract class CApplication extends CModule
 			restore_exception_handler();
 			$log="$message ($file:$line)\nStack trace:\n";
 			$trace=debug_backtrace();
-			// skip the first 3 stacks as they do not tell the error position
-			if(count($trace)>3)
-				$trace=array_slice($trace,3);
+			array_shift($trace);
 			foreach($trace as $i=>$t)
 			{
 				if(!isset($t['file']))
@@ -1612,9 +1610,9 @@ abstract class CApplication extends CModule
 			echo "<p>$message ($file:$line)</p>\n";
 			echo '<pre>';
 			$trace=debug_backtrace();
-			// skip the first 3 stacks as they do not tell the error position
-			if(count($trace)>3)
-				$trace=array_slice($trace,3);
+			// skip the first 2 stacks as they are always irrelevant
+			if(count($trace)>2)
+				$trace=array_slice($trace,2);
 			foreach($trace as $i=>$t)
 			{
 				if(!isset($t['file']))
@@ -4193,7 +4191,12 @@ abstract class CAction extends CComponent implements IAction
 			$name=$param->getName();
 			if(isset($params[$name]))
 			{
-				if($param->isArray())
+				if(version_compare(PHP_VERSION,'8.0','>=')) {
+					$isArray=$param->getType() && $param->getType()->getName()==='array';
+				} else {
+					$isArray=$param->isArray();
+                }
+				if($isArray)
 					$ps[]=is_array($params[$name]) ? $params[$name] : array($params[$name]);
 				elseif(!is_array($params[$name]))
 					$ps[]=$params[$name];
@@ -4707,7 +4710,19 @@ class CHttpSession extends CApplicationComponent implements IteratorAggregate,Ar
 		extract($data);
 		extract($value);
 		$this->freeze();
-		if(isset($httponly))
+		if(isset($httponly) && isset($samesite))
+		{
+			if(version_compare(PHP_VERSION,'7.3.0','>='))
+				session_set_cookie_params(array('lifetime'=>$lifetime,'path'=>$path,'domain'=>$domain,'secure'=>$secure,'httponly'=>$httponly,'samesite'=>$samesite));
+			else
+			{
+				// Work around for setting sameSite cookie prior PHP 7.3
+				// https://stackoverflow.com/questions/39750906/php-setcookie-samesite-strict/46971326#46971326
+				$path .= '; samesite=' . $samesite;
+				session_set_cookie_params($lifetime,$path,$domain,$secure,$httponly);
+			}
+		}
+		else if(isset($httponly))
 			session_set_cookie_params($lifetime,$path,$domain,$secure,$httponly);
 		else
 			session_set_cookie_params($lifetime,$path,$domain,$secure);
@@ -4916,6 +4931,8 @@ class CHtml
 	public static $count=0;
 	public static $liveEvents=true;
 	public static $closeSingleTags=true;
+	public static $setScriptType=true;
+	public static $cdataScriptAndStyleContents=true;
 	public static $renderSpecialAttributesValue=true;
 	private static $_modelNameConverter;
 	public static function encode($text)
@@ -4986,7 +5003,9 @@ class CHtml
 	{
 		if($media!=='')
 			$media=' media="'.$media.'"';
-		return "<style type=\"text/css\"{$media}>\n/*<![CDATA[*/\n{$text}\n/*]]>*/\n</style>";
+		if(self::$cdataScriptAndStyleContents)
+			$text="/*<![CDATA[*/\n{$text}\n/*]]>*/";
+		return "<style type=\"text/css\"{$media}>\n{$text}\n</style>";
 	}
 	public static function refresh($seconds,$url='')
 	{
@@ -5001,18 +5020,20 @@ class CHtml
 	}
 	public static function script($text,array $htmlOptions=array())
 	{
-		$defaultHtmlOptions=array(
-			'type'=>'text/javascript',
-		);
+		$defaultHtmlOptions=array();
+		if(self::$setScriptType)
+			$defaultHtmlOptions['type']='text/javascript';
 		$htmlOptions=array_merge($defaultHtmlOptions,$htmlOptions);
-		return self::tag('script',$htmlOptions,"\n/*<![CDATA[*/\n{$text}\n/*]]>*/\n");
+		if(self::$cdataScriptAndStyleContents)
+			$text="/*<![CDATA[*/\n{$text}\n/*]]>*/";
+		return self::tag('script',$htmlOptions,"\n{$text}\n");
 	}
 	public static function scriptFile($url,array $htmlOptions=array())
 	{
-		$defaultHtmlOptions=array(
-			'type'=>'text/javascript',
-			'src'=>$url
-		);
+		$defaultHtmlOptions=array();
+		if(self::$setScriptType)
+			$defaultHtmlOptions['type']='text/javascript';
+		$defaultHtmlOptions['src']=$url;
 		$htmlOptions=array_merge($defaultHtmlOptions,$htmlOptions);
 		return self::tag('script',$htmlOptions,'');
 	}
@@ -5815,7 +5836,11 @@ EOD;
 				foreach($errors as $error)
 				{
 					if($error!='')
-						$content.= '<li>'.self::encode($error)."</li>\n";
+					{
+						if (!isset($htmlOptions['encode']) || $htmlOptions['encode'])
+							$error=self::encode($error);
+						$content.= '<li>'.$error."</li>\n";
+					}
 					if($firstError)
 						break;
 				}
@@ -5835,7 +5860,9 @@ EOD;
 	public static function error($model,$attribute,$htmlOptions=array())
 	{
 		self::resolveName($model,$attribute); // turn [a][b]attr into attr
-		$error=self::encode($model->getError($attribute));
+		$error=$model->getError($attribute);
+		if (!isset($htmlOptions['encode']) || $htmlOptions['encode'])
+			$error=self::encode($error);
 		if($error!='')
 		{
 			if(!isset($htmlOptions['class']))
@@ -8862,18 +8889,22 @@ class CDbConnection extends CApplicationComponent
 		if(is_int($str) || is_float($str))
 			return $str;
 		$this->setActive(true);
-		if(($value=$this->_pdo->quote($str))!==false)
-			return $value;
-		else  // the driver doesn't support quote (e.g. oci)
-			return "'" . addcslashes(str_replace("'", "''", $str), "\000\n\r\\\032") . "'";
+		return $this->quoteValueInternal($str, PDO::PARAM_STR);
 	}
 	public function quoteValueWithType($value, $type)
 	{
 		$this->setActive(true);
-		if(($quoted=$this->_pdo->quote($value, $type))!==false)
-			return $quoted;
-		else  // the driver doesn't support quote (e.g. oci)
-			return "'" . addcslashes(str_replace("'", "''", $value), "\000\n\r\\\032") . "'";
+		return $this->quoteValueInternal($value, $type);
+	}
+	private function quoteValueInternal($value, $type)
+	{
+		if(mb_stripos($this->connectionString, 'odbc:')===false)
+		{
+			if(($quoted=$this->_pdo->quote($value, $type))!==false)
+				return $quoted;
+		}
+		// fallback for drivers that don't support quote (e.g. oci and odbc)
+		return "'" . addcslashes(str_replace("'", "''", $value), "\000\n\r\\\032") . "'";
 	}
 	public function quoteTableName($name)
 	{
