@@ -3,7 +3,7 @@
 Klasifikasi Baku Lapangan Usaha Indonesia
 
 Berikut adalah data referensi KBLI sesuai peraturan Kepala Badan Pusat Statistik
-sesuai [referensi](tree/master/referensi).
+sesuai [referensi](referensi).
 
 ## Instalasi (OpenSUSE)
 
