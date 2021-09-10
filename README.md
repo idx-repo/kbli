@@ -3,15 +3,13 @@
 Klasifikasi Baku Lapangan Usaha Indonesia
 
 Berikut adalah data referensi KBLI sesuai peraturan Kepala Badan Pusat Statistik
-Nomor 57 tahun 2009.
+sesuai [referensi](tree/master/referensi).
 
-Akan dibentuk dalam beberapa format.
-
-## Instalasi di OpenSUSE
+## Instalasi (OpenSUSE)
 
 Sebelumnya install apache2 dan mariadb terlebih dulu.
 
-## Clone proyek pada direktori kerja server.
+### Clone proyek pada direktori kerja server.
 
 ```
 mkdir -p /srv/www/yii2
@@ -32,7 +30,7 @@ composer update
 chown wwwrun runtime/
 ```
 
-## Direktori kerja apache
+### Direktori kerja apache
 
 ```
 cd /srv/www/htdocs
@@ -54,6 +52,6 @@ $config = require __DIR__ . '/../../yii2/kbli/yii2app/config/web.php';
 (new yii\web\Application($config))->run();
 ```
 
-## Catatan
+### Catatan
 
 Sesuaikan direktori pemasangan. Konfigurasi dan preferensi boleh berbeda.
