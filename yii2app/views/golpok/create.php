@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\GolonganPokok */
 
-$this->title = 'Create Golongan Pokok';
-$this->params['breadcrumbs'][] = ['label' => 'Golongan Pokoks', 'url' => ['index']];
+$this->title = 'Tambah Golongan Pokok';
+$this->params['breadcrumbs'][] = ['label' => 'Golongan Pokok', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="golongan-pokok-create">

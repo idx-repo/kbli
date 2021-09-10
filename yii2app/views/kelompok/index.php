@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Kelompoks';
+$this->title = 'Kelompok';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kelompok-index">
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Kelompok', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Kelompok', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'sub_gol',
             'kelompok',
             'judul',

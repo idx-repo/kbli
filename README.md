@@ -26,6 +26,12 @@ cd kbli/yii2app
 composer update
 ```
 
+### Runtime
+
+```
+chown wwwrun runtime/
+```
+
 ## Direktori kerja apache
 
 ```
@@ -35,6 +41,7 @@ cd kbli
 mkdir assets
 chown wwwrun assets
 cp /srv/www/yii2/kbli/yii2app/.htaccess .htaccess
+cp -r /srv/www/yii2/kbli/yii2app/web/css css
 ```
 
 Masih dalam folder kbli, ubah isi `index.php` sbb:
