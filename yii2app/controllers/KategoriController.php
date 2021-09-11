@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Kategori;
+use app\models\GolonganPokok;
+
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -64,9 +66,23 @@ class KategoriController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+      $dataProvider = new ActiveDataProvider([
+          'query' => GolonganPokok::find()->where(['kategori' => $id]);,
+          /*
+          'pagination' => [
+              'pageSize' => 50
+          ],
+          'sort' => [
+              'defaultOrder' => [
+                  'id' => SORT_DESC,
+              ]
+          ],
+          */
+      ]);
+      return $this->render('view', [
+          'model' => $this->findModel($id),
+          'dataProvider' => $dataProvider
+      ]);
     }
 
     /**
