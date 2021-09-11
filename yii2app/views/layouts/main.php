@@ -35,7 +35,7 @@ AppAsset::register($this);
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'options' => ['class' => 'navbar-nav float-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Kategori', 'url' => ['/kategori/index']],
@@ -69,7 +69,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="float-left">&copy; <a href="https://three-musketeerz.github.io/">Three Musketeerz</a> <?= date('Y') ?>, bagian dari <a href="http://idx-repo.github.io/">IDX-Repo</a></p>
         <p class="float-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
