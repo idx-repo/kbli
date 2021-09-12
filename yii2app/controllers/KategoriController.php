@@ -67,7 +67,7 @@ class KategoriController extends Controller
     public function actionView($id)
     {
       $dataProvider = new ActiveDataProvider([
-          'query' => GolonganPokok::find()->where(['kategori' => $id]);,
+          'query' => GolonganPokok::find()->where(['kategori' => $id]),
           /*
           'pagination' => [
               'pageSize' => 50
