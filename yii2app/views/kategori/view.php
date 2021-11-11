@@ -37,6 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <p>
+        <?= Html::a('Tambah Golongan Pokok', ['golpok/create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -47,7 +51,41 @@ $this->params['breadcrumbs'][] = $this->title;
             'judul',
             'deskripsi:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+               'class' => 'yii\grid\ActionColumn'
+               'template' => '{view}{update}{delete}',
+               'buttons' => [
+                 'view' => function ($url, $model) {
+                     return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
+                            'title' => Yii::t('app', 'view'),
+                            ]);
+                     },
+                 'update' => function ($url, $model) {
+                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
+                            'title' => Yii::t('app', 'update'),
+                            ]);
+                     },
+                 'delete' => function ($url, $model) {
+                     return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
+                            'title' => Yii::t('app', 'delete'),
+                            ]);
+                     }
+               'urlCreator' => function ($action, $model, $key, $index) {
+                  if ($action === 'view') {
+                    $url ='index.php?r=golpok/view&id='.$model->id;
+                    return $url;
+                    }
+                  if ($action === 'update') {
+                    $url ='index.php?r=golpok/update&id='.$model->id;
+                    return $url;
+                    }
+                 if ($action === 'delete') {
+                    $url ='index.php?r=golpok/delete&id='.$model->id;
+                    return $url;
+                    }
+                 }
+              ],
+            ],
         ],
     ]); ?>
 

@@ -43,7 +43,7 @@ class Kategori extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'kd' => 'Kd',
+            'kd' => 'Kode',
             'judul' => 'Judul',
             'deskripsi' => 'Deskripsi',
         ];
