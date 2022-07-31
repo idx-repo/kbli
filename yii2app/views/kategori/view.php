@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
+use kartik\icons\Icon;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Kategori */
@@ -44,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             //'id', 'kategori',
             'gol_pok',
@@ -52,39 +53,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'deskripsi:ntext',
 
             [
-               'class' => 'yii\grid\ActionColumn'
+               'class' => 'yii\grid\ActionColumn',
                'template' => '{view}{update}{delete}',
                'buttons' => [
                  'view' => function ($url, $model) {
-                     return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
-                            'title' => Yii::t('app', 'view'),
-                            ]);
+                     return Html::a('V', ['golpok/view', 'id' => $model->id], ['class' => 'btn btn-success']);
                      },
                  'update' => function ($url, $model) {
-                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
-                            'title' => Yii::t('app', 'update'),
-                            ]);
+                     return Html::a('U', ['golpok/update', 'id' => $model->id], ['class' => 'btn btn-primary']);
                      },
                  'delete' => function ($url, $model) {
-                     return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
-                            'title' => Yii::t('app', 'delete'),
-                            ]);
-                     }
-               'urlCreator' => function ($action, $model, $key, $index) {
-                  if ($action === 'view') {
-                    $url ='index.php?r=golpok/view&id='.$model->id;
-                    return $url;
-                    }
-                  if ($action === 'update') {
-                    $url ='index.php?r=golpok/update&id='.$model->id;
-                    return $url;
-                    }
-                 if ($action === 'delete') {
-                    $url ='index.php?r=golpok/delete&id='.$model->id;
-                    return $url;
-                    }
-                 }
-              ],
+                     return Html::a('D', ['golpok/delete', 'id' => $model->id], ['class' => 'btn btn-danger']);
+                     },
+                 ],
             ],
         ],
     ]); ?>
