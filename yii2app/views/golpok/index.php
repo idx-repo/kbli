@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Tambah Golongan Pokok', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Yii::$app->user->isGuest ? '' : Html::a('Tambah Golongan Pokok', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
