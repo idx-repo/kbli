@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <p>
-        <?= Html::a('Tambah Golongan Pokok', ['golpok/create'], ['class' => 'btn btn-success']) ?>
+        <?= Yii::$app->user->isGuest ? '' : Html::a('Tambah Golongan Pokok', ['golpok/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                'class' => 'yii\grid\ActionColumn',
-               'template' => '{view}{update}{delete}',
+               'template' => Yii::$app->user->isGuest ? '{view}' : '{view}{update}{delete}',
                'buttons' => [
                  'view' => function ($url, $model) {
                      return Html::a('V', ['golpok/view', 'id' => $model->id], ['class' => 'btn btn-success']);
@@ -63,7 +63,10 @@ $this->params['breadcrumbs'][] = $this->title;
                      return Html::a('U', ['golpok/update', 'id' => $model->id], ['class' => 'btn btn-primary']);
                      },
                  'delete' => function ($url, $model) {
-                     return Html::a('D', ['golpok/delete', 'id' => $model->id], ['class' => 'btn btn-danger']);
+                     return Html::a('D', ['golpok/delete', 'id' => $model->id], [
+                         'class' => 'btn btn-danger',
+                         'data' => ['confirm' => 'Hapus golongan pokok ini?', 'method' => 'post'],
+                     ]);
                      },
                  ],
             ],

@@ -6,6 +6,7 @@ use app\models\GolonganPokok;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
 /**
@@ -21,6 +22,22 @@ class GolpokController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'rules' => [
+                        // data referensi boleh dilihat publik
+                        [
+                            'allow' => true,
+                            'actions' => ['index', 'view'],
+                        ],
+                        // mengubah data wajib login
+                        [
+                            'allow' => true,
+                            'actions' => ['create', 'update', 'delete'],
+                            'roles' => ['@'],
+                        ],
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -39,6 +56,7 @@ class GolpokController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => GolonganPokok::find(),
+            'sort' => ['defaultOrder' => ['gol_pok' => SORT_ASC]],
             /*
             'pagination' => [
                 'pageSize' => 50
